@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Profile from "../views/profile/Profile";
-
 Vue.use(VueRouter)
 const originalPush = VueRouter .prototype.push
 VueRouter .prototype.push = function push (location) {
@@ -10,7 +8,8 @@ VueRouter .prototype.push = function push (location) {
 const Home=()=>import('../views/home/Home')
 const Cart=()=>import('../views/cart/Cart')
 const Category=()=>import('../views/category/Category')
-const profile=()=>import('../views/profile/Profile')
+const Profile=()=>import('../views/profile/Profile')
+import Detail from "../views/detail/Detail";
 const routes = [
   {
     path:'',
@@ -31,6 +30,10 @@ const routes = [
   {
     path:'/profile',
     component:Profile
+  },
+  {
+  path:'/detail',
+    component:Detail
   }
 ]
 

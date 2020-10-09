@@ -1,68 +1,6 @@
 <template>
 <div class="con" ref="a">
-  <ul>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-    <li>1111</li>
-
-
-
-  </ul>
+  <button ref="f">按钮一</button>
 </div>
 </template>
 
@@ -76,6 +14,21 @@
       new scroll(this.$refs.a,{
 
       })
+      this.$refs.f.addEventListener('click',this.debounce(this.fun,1000))
+    },
+    methods:{
+      debounce(fn, wait) {
+        console.log(1222)
+        console.log(timeout)
+        var timeout = null;
+        return function () {
+          if (timeout !== null) clearTimeout(timeout);
+          timeout = setTimeout(fn, wait);
+        }
+      },
+      fun(){
+        console.log(1111)
+      }
     }
   }
 

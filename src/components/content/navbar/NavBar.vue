@@ -28,6 +28,7 @@
   .left,.right{
     width: 60px;
     /*background-color: red;*/
+    /*line-height: 44px;*/
   }
   .center{
     flex: 1;

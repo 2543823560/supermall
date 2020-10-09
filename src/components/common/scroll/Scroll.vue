@@ -27,12 +27,15 @@
         message: '哈哈哈'
       }
     },
-    methods:{
-   scrollTo (x,y,time=2000){
-       this.scroll.scrollTo(x,y,time);
-  },
-      finishPullUp(){
-        this.scroll.finishPullUp();
+    methods: {
+      scrollTo(x, y, time = 2000) {
+        this.scroll&&this.scroll.scrollTo(x, y, time);
+      },
+      finishPullUp() {
+        this.scroll&&this.scroll.finishPullUp();
+      },
+      refresh() {
+        this.scroll&&this.scroll.refresh()
       }
     },
     mounted() {
@@ -42,12 +45,17 @@
         probeType: this.probeType,
         pullUpLoad: this.pullUpLoad
       })
-      this.scroll.on('scroll',(position)=>{
-        this.$emit("clickPosition",position)
-      })
-      this.scroll.on('pullingUp',()=>{
-        this.$emit('pullingUp')
-      })
+      if(this.probeType>=2)
+      {
+        this.scroll.on('scroll', (position) => {
+          this.$emit("clickPosition", position)
+        })
+      }
+      if(this.pullUpLoad){
+        this.scroll.on('pullingUp', () => {
+          this.$emit('pullingUp')
+        })
+      }
     }
   }
 </script>

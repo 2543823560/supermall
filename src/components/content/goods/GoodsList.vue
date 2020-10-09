@@ -1,6 +1,6 @@
 <template>
 <div class="goods-list">
-<goods-list-item v-for="good in goods" :good="good">
+<goods-list-item v-for="good in goods" :good="good" >
 </goods-list-item>
 </div>
 </template>
@@ -15,6 +15,8 @@
           type:Array,
           default:[]
         }
+      },
+      methods:{
       }
     }
 </script>

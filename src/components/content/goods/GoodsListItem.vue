@@ -1,7 +1,7 @@
 <template>
 <div class="goods-list-item">
-<div>
-  <img :src="good.show.img"/>
+<div @click="goodDetails(good.iid)">
+  <img :src="good.show.img" @load="onload"/>
   <div class="goods-info">
     <p>{{good.title}}</p>
     <span class="price">{{good.price}}</span>
@@ -12,12 +12,25 @@
 </template>
 <script>
     export default {
-        name: "GoodsListItem",
+      name: "GoodsListItem",
       props:{
           good:{
             type:Object,
             default:{}
           }
+      },
+      methods:{
+        onload(){
+          this.$bus.$emit('onload')
+        },
+        goodDetails(iid){
+          this.$router.replace({
+            path:'/detail',
+            query:{
+              iid
+            }
+          })
+        }
       }
     }
 </script>
